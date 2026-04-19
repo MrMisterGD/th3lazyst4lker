@@ -12,7 +12,7 @@ No promises about the future though - ᴵ'ˡˡ ᵖʳᵒᵇᵃᵇˡʸ ᶠᵒʳᵍ
 
 ### With Docker
 ```bash
-git clone <repo> th3lazyst4lker
+git clone github.com/MrMisterGD/th3lazyst4lker th3lazyst4lker
 cd th3lazyst4lker
 docker build -t th3lazyst4lker .
 docker run --rm th3lazyst4lker --help
@@ -20,7 +20,7 @@ docker run --rm th3lazyst4lker --help
 
 ### On Kali / Linux (Recommended)
 ```bash
-git clone <repo> th3lazyst4lker
+git clone github.com/MrMisterGD/th3lazyst4lker th3lazyst4lker
 cd th3lazyst4lker
 pip install -e .
 st4lker --help
