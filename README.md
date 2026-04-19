@@ -12,17 +12,21 @@ No promises about the future though - ᴵ'ˡˡ ᵖʳᵒᵇᵃᵇˡʸ ᶠᵒʳᵍ
 
 ### With Docker
 ```bash
-git clone github.com/MrMisterGD/th3lazyst4lker th3lazyst4lker
+git clone <repo> th3lazyst4lker
 cd th3lazyst4lker
 docker build -t th3lazyst4lker .
 docker run --rm th3lazyst4lker --help
 ```
 
 ### On Kali / Linux (Recommended)
+if anybody can fix this I'll giv'em a lil' kiss
 ```bash
-git clone github.com/MrMisterGD/th3lazyst4lker th3lazyst4lker
-cd th3lazyst4lker
-pip install -e .
+pip install st4lker
+st4lker --help
+```
+OR
+```bash
+pip install st4lker --break-system-packages
 st4lker --help
 ```
 

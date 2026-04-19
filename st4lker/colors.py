@@ -16,7 +16,7 @@ class C:
 BANNER = f"""{C.BOLD}{C.CYAN}
 *******************************************************************
 *                                                                 *
-*                   Th3LazySt4lker v0.5                           *
+*                   Th3LazySt4lker v1.0.3                         *
 *                      Coded by Mr. Mister GD                     *
 *                                                                 *
 *                    lazy OSINT for lazy people                   *
