@@ -54,8 +54,14 @@ st4lker -e test@gmail.com
 ```
 
 Search by name:
+(temporarily broken feature)
 ```bash
 st4lker -n "John Smith"
+```
+
+Search by domain:
+```bash
+st4lker -d example.com
 ```
 
 High intensity (slower, more thorough):
