@@ -9,9 +9,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libffi-dev \
+    libcairo2-dev \
+    pkg-config \
     python3-dev \
     gcc \
     g++ \
+    libcairo2-dev \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 COPY st4lker/ /app/st4lker/

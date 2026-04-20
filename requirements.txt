@@ -1,4 +1,4 @@
 sherlock-project>=0.16.0
 socialscan>=2.0.1
 holehe>=1.61
-maigret
+maigret>=0.6.0

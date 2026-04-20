@@ -28,6 +28,7 @@ class ST4lker:
   -u, --username <name>     Search by username
   -e, --email <email>       Search by email address
   -n, --name <name>         Search by full name
+  -d, --domain <name>       Search by domain or ip
   -i, --intensity <1-3>     Search intensity (1=High, 2=Medium, 3=Low) [default: 2]
   
   --check-tools             List what tools you actually have installed
@@ -62,6 +63,9 @@ class ST4lker:
   Email search:
     st4lker -e test@gmail.com
   
+  Name search (breaks down and searches parts):
+    st4lker -n "John Smith"
+  
   All at once:
     st4lker -u admin -e test@gmail.com -n "John Smith"
 
@@ -72,9 +76,9 @@ class ST4lker:
 
 {C.BOLD}TOOLS AVAILABLE:{C.RESET}
   - Sherlock       : username hunting (the classic move)
+  - Maigret        : detailed username search (sherlock++ mode)
   - Socialscan     : email/username checker (quick verification)
   - Holehe         : email breach detector (did you get pwned?)
-  - Maigret        : detailed username search (sherlock++ mode)
   - PhoneInfoqa    : phone number OSINT (find who's calling)
   - Whois          : domain and IP lookup (know your target)
   - Hunter         : email finder (find business emails)
@@ -165,13 +169,14 @@ class ST4lker:
             reporter = Reporter(self.tool_manager.execution_log, self.tool_manager.results)
             reporter.print_report()
     
-    def run_standard_mode(self, username=None, email=None, name=None, intensity=2):
+    def run_standard_mode(self, username=None, email=None, name=None, domain=None, intensity=2):
         """run the standard mode - searches without chaos"""
         search_performed = False
         
         if username:
             print(f"\n{C.BOLD}{C.GREEN}[USERNAME] {username}{C.RESET}\n")
             self.tool_manager.run_tool("sherlock", [username])
+            self.tool_manager.run_tool("maigret", [username])
             self.tool_manager.run_tool("socialscan", [username])
             search_performed = True
         
@@ -183,7 +188,11 @@ class ST4lker:
         
         if name:
             print(f"\n{C.BOLD}{C.GREEN}[NAME] {name}{C.RESET}\n")
-            print(f"{C.YELLOW}[!] For names, try breaking them down and searching as usernames{C.RESET}")
+            print(f"{C.CYAN}[*] I might have broken this and forgot how to fix it :) {C.RESET}\n")
+        
+        if domain:
+            print(f"\n{C.BOLD}{C.GREEN}[DOMAIN/IP] {domain}{C.RESET}\n")
+            self.tool_manager.run_tool("whois", [domain])
             search_performed = True
         
         return search_performed
@@ -201,6 +210,7 @@ class ST4lker:
         parser.add_argument("-u", "--username", help="Search by username")
         parser.add_argument("-e", "--email", help="Search by email")
         parser.add_argument("-n", "--name", help="Search by full name")
+        parser.add_argument("-d", "--domain", help="Search by domain or ip")
         parser.add_argument("-i", "--intensity", type=int, choices=[1, 2, 3], default=2,
                             help="Intensity level (1=High, 2=Medium, 3=Low)")
         parser.add_argument("--check-tools", action="store_true", help="Check installed tools")
@@ -231,6 +241,7 @@ class ST4lker:
             username=args.username,
             email=args.email,
             name=args.name,
+            domain=args.domain,
             intensity=args.intensity
         )
         
