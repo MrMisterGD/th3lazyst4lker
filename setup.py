@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="st4lker",
-    version="1.0.2",  # bump version
+    version="1.1.0",  # bump version
     author="Mr. Mister GD",
     description="lazy OSINT tool for lazy people",
     long_description=long_description,
